@@ -8,11 +8,5 @@ class GearPackerApplicationTests {
 
   @Test
   fun contextLoads() {
-    print("FOOOOOOOO")
-  }
-
-  @Test
-  fun failure() {
-    assert(false);
   }
 }
