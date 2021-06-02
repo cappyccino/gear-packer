@@ -20,7 +20,7 @@ jobs:
           java-version: '16'
           distribution: 'adopt'
 
-      - name: Build with Gradle
+      - name: Build and Test with Gradle
         run: ./gradlew build
 
       - name: Deploy to Heroku
@@ -30,4 +30,4 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           branch: "main"
-          healthcheck: https://gear-packer.herokuapp.com/
+          healthcheck: https://${{secrets.HEROKU_APP_NAME}}.herokuapp.com/
