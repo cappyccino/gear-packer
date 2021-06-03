@@ -19,10 +19,13 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Build React app with Gradle and Yarn
+      - name: Install Yarn
+        run: ./gradlew yarn_install
+
+      - name: Bundle React app with Gradle and Yarn
         run: ./gradlew yarn_build
 
-      - name: Build and Test with Gradle
+      - name: Build and Test Java app with Gradle
         run: ./gradlew build
 
       - name: Deploy to Heroku
