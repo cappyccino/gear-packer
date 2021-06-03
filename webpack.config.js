@@ -2,14 +2,13 @@ const webpack = require("webpack");
 const path = require("path");
 
 const reactEntryPoint = "./src/main/js/index.js";
-const builtDirectory = "./src/main/resources/static/built/";
-const templateDirectory = "./src/main/resources/templates/";
+const staticDirectory = "./src/main/resources/static/";
 
 module.exports = {
     entry: path.resolve(__dirname, reactEntryPoint),
     output: {
-        path: path.resolve(__dirname, builtDirectory),
-        filename: "bundle.js",
+        path: path.resolve(__dirname, staticDirectory),
+        filename: "built/bundle.js",
     },
     module: {
         rules: [
@@ -31,10 +30,9 @@ module.exports = {
     plugins: [new webpack.HotModuleReplacementPlugin()],
     devServer: {
         contentBase: [
-            path.resolve(__dirname, builtDirectory),
+            path.resolve(__dirname, staticDirectory),
         ],
-        // index: path.resolve(__dirname, templateDirectory + "index.html"),
+        port: 3000,
         hot: true,
-        port: 3000
     },
 };
