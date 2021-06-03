@@ -36,6 +36,10 @@ tasks.withType<Test> {
   useJUnitPlatform()
 }
 
+tasks.named("yarn_build") {
+  dependsOn("yarn_install")
+}
+
 tasks.named("build") {
-  dependsOn("yarn_install", "yarn_build")
+  dependsOn("yarn_build")
 }
