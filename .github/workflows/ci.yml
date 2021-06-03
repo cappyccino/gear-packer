@@ -19,6 +19,9 @@ jobs:
         with:
           java-version: 1.8
 
+      - name: Bundle React app with yarn
+        run: yarn build
+
       - name: Build and Test with Gradle
         run: ./gradlew build
 
