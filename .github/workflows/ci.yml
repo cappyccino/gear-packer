@@ -22,11 +22,11 @@ jobs:
 #      - name: Build and Test Java app with Gradle
 #        run: ./gradlew build
 
-      - name: Deploy to Heroku
+      - name: 'Deploy to Heroku'
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          branch: "main"
           healthcheck: https://${{secrets.HEROKU_APP_NAME}}.herokuapp.com/actuator/health
+          useDocker: true
