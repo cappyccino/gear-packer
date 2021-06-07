@@ -1,8 +1,8 @@
 const webpack = require("webpack");
 const path = require("path");
 
-const reactEntryPoint = "./src/main/js/index.js";
-const staticDirectory = "./src/main/resources/static/";
+const reactEntryPoint = "./index.js";
+const staticDirectory = "../resources/static/";
 
 module.exports = {
     entry: path.resolve(__dirname, reactEntryPoint),

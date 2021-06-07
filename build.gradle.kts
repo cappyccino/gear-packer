@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.github.gradle.node.task.NodeTask
 
 plugins {
   id("org.springframework.boot") version "2.5.0"
@@ -34,6 +35,10 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
   useJUnitPlatform()
+}
+
+node {
+  nodeProjectDir.set(file("${project.projectDir}/src/main/js"))
 }
 
 tasks.named("yarn_build") {
