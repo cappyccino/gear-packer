@@ -6,7 +6,7 @@ RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 
 # Copy the JAR
-ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=build/libs/\*.jar
 COPY ${JAR_FILE} app.jar
 
 # Install node
