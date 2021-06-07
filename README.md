@@ -26,3 +26,11 @@ Start by running
 ```
 
 And visit the compiled React site at [localhost:8080](localhost:8080), or the health check endpoint at [`localhost:8080/acutator/health`](localhost:8080/acutator/health).
+
+### Run application via Docker
+In Heroku, the application is running inside a Docker container. For debugging, you can run the container locally with:
+```bash
+docker build -t cappyccino/gear-packer . 
+docker run -p 9000:8080 cappyccino/gear-packer
+```
+And visit at [localhost:9000](localhost:9000) (the default port Heroku runs on).
