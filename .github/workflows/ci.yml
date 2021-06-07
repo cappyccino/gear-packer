@@ -19,8 +19,8 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Build and Test Java app with Gradle
-        run: ./gradlew build
+#      - name: Build and Test Java app with Gradle
+#        run: ./gradlew build
 
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
