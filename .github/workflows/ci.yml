@@ -19,8 +19,8 @@ jobs:
         with:
           java-version: 1.8
 
-#      - name: Build and Test Java app with Gradle
-#        run: ./gradlew build
+      - name: Build and Test Java app with Gradle
+        run: ./gradlew build
 
       - name: Build, Push and Release a Docker container to Heroku.
         uses: gonuit/heroku-docker-deploy@v1.3.3
@@ -28,14 +28,3 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           email: ${{ secrets.HEROKU_EMAIL }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-
-#      - name: Build heroku boot image
-#        run: ./gradlew bootBuildImage --imageName=gear-packer --builder heroku/spring-boot-buildpacks
-
-#      - name: 'Deploy to Heroku'
-#        uses: akhileshns/heroku-deploy@v3.12.12
-#        with:
-#          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-#          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-#          heroku_email: ${{secrets.HEROKU_EMAIL}}
-#          healthcheck: https://${{secrets.HEROKU_APP_NAME}}.herokuapp.com/actuator/health
