@@ -1,6 +1,8 @@
 # Gear Tracker
 Playing around with things for some beach-time practice.
 
+A Spring Boot application using Java 8, serving a React app. Deployed on Heroku.
+
 ## Local Development
 
 ### Pre-requisites
@@ -23,4 +25,4 @@ Start by running
 ./gradlew bootRun
 ```
 
-And visit the compiled React site at [localhost:8080](localhost:8080).
+And visit the compiled React site at [localhost:8080](localhost:8080), or the health check endpoint at [`localhost:8080/acutator/health`](localhost:8080/acutator/health).
