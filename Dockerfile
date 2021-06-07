@@ -11,6 +11,6 @@ COPY ${JAR_FILE} app.jar
 
 # Copy static files
 # (This is hacky, I knowwww)
-COPY build/resources/main/static/ .
+COPY src/main/resources/ .
 
 ENTRYPOINT ["java","-jar","/app.jar"]
