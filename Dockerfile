@@ -9,8 +9,4 @@ USER spring:spring
 ARG JAR_FILE=build/libs/\*SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
-## Install node
-#RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-#RUN sudo apt-get install -y nodejs
-
 ENTRYPOINT ["java","-jar","/app.jar"]

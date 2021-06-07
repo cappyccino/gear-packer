@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: docker build -t springio/gs-spring-boot-docker . && docker run -p 8080:8080 springio/gs-spring-boot-docker
+  web: docker build -t cappyccino/gear-packer . && docker run -p 8080:8080 cappyccino/gear-packer
