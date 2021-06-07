@@ -30,3 +30,4 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           usedocker: true
           healthcheck: https://${{secrets.HEROKU_APP_NAME}}.herokuapp.com/actuator/health
+          delay: 5 # (in seconds) needed so heroku can start up

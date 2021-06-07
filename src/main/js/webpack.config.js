@@ -8,7 +8,7 @@ module.exports = {
     entry: path.resolve(__dirname, reactEntryPoint),
     output: {
         path: path.resolve(__dirname, staticDirectory),
-        filename: "built/bundle.js",
+        filename: "bundle.js",
     },
     module: {
         rules: [
