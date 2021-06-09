@@ -2,7 +2,7 @@ require 'capybara/dsl'
 require 'capybara/rspec'
 
 Capybara.current_driver = :selenium_headless
-Capybara.app_host = 'localhost:3000'
+Capybara.app_host = 'localhost:8080'
 Capybara.run_server = false
 
 feature "the first page" do
