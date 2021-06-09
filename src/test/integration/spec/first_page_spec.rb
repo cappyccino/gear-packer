@@ -10,8 +10,4 @@ feature "the first page" do
     visit '/'
     expect(page).to have_content 'Beep Boop I am a react app'
   end
-
-  it 'should fail' do
-    expect(false).to eq true
-  end
 end
