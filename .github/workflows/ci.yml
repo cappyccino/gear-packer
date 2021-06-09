@@ -18,7 +18,7 @@ jobs:
         run: ls -hal
 
       - name: 'testing access to repo files'
-        run: cat /github/workspace/README.md
+        run: cat README.md
 
       - name: 'Set up JDK 1.8'
         uses: actions/setup-java@v1
@@ -28,7 +28,7 @@ jobs:
       - name: 'Set up Ruby 2.6'
         uses: ruby/setup-ruby@v1
         env:
-          BUNDLE_GEMFILE: /github/workspace/src/test/integration/Gemfile
+          BUNDLE_GEMFILE: src/test/integration/Gemfile
         with:
           ruby-version: 2.6
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
@@ -38,7 +38,7 @@ jobs:
 
       - name: 'Set up and run Integration tests'
         env:
-          BUNDLE_GEMFILE: /github/workspace/src/test/integration/Gemfile
+          BUNDLE_GEMFILE: src/test/integration/Gemfile
         run: |
           ./gradlew bootRun
           bundle exec rspec
