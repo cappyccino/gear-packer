@@ -10,7 +10,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
-      BUNDLE_GEMFILE: /github/workspace/src/test/integration/
+      BUNDLE_GEMFILE: /github/workspace/src/test/integration/Gemfile
 
     steps:
       - name: 'Checkout code'
