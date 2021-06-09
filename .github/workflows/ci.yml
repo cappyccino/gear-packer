@@ -24,7 +24,6 @@ jobs:
       - name: 'Set up Ruby'
         uses: ruby/setup-ruby@v1
         with:
-          working-directory: /github/workspace/src/test/integration/
           ruby-version: 2.6
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
