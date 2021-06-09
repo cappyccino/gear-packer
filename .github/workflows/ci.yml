@@ -32,7 +32,7 @@ jobs:
 
       - name: 'Build and run docker for Integration tests'
         run: |
-          docker build -t cappyccino/gear-packer
+          docker build -t cappyccino/gear-packer .
           docker run -d -p 8080:8080 cappyccino/gear-packer
 
       - name: 'Set up and run Integration tests'
