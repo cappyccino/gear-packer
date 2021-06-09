@@ -10,6 +10,7 @@ src/main/resources/static/bundle.js
 src/main/resources/static/bundle.js.LICENSE.txt
 node_modules/
 yarn-*.log
+yarn.lock
 
 ### RSpec ###
 src/test/integration/.bundle
