@@ -48,3 +48,8 @@ tasks.named("yarn_build") {
 tasks.named("build") {
   dependsOn("yarn_build")
 }
+
+tasks.register<Exec>("integration") {
+  environment("BUNDLE_GEMFILE", "src/test/integration/Gemfile")
+  commandLine("bundle", "exec", "rspec", "src/test/integration/spec")
+}
