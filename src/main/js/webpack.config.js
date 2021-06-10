@@ -17,10 +17,20 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [{
                     loader: 'babel-loader',
-                    options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"]
-                    }
+                    options: {presets: ["@babel/preset-env", "@babel/preset-react"]}
                 }]
+            },
+            {
+                test: /\.svg$/,
+                use: ['@svgr/webpack'],
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader", // Creates `style` nodes from JS strings
+                    "css-loader", // Translates CSS into CommonJS
+                    "sass-loader", // Compiles Sass to CSS
+                ],
             },
         ],
     },

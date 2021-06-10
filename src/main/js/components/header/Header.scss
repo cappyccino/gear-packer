@@ -1,0 +1,15 @@
+@import "components/colors";
+
+.header {
+  background-color: $berry;
+  display: flex;
+  flex-direction: row;
+
+  &__logo {
+    width: 3rem;
+  }
+
+  &__title {
+    color: white;
+  }
+}

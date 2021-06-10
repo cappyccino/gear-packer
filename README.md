@@ -5,6 +5,9 @@ A Spring Boot application using Java 8, serving a React app. Deployed on Heroku.
 
 Production app is live at [gear-packer.herokuapp.com](https://gear-packer.herokuapp.com/)
 
+### Guidlelines for Contributing
+The codebase should be developed using TDD as much as possible. The tests follow the approach recommended by [Testing Library](https://testing-library.com/docs/queries/about#priority) of querying elements by their ARIA role. More information on roles can be found at [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles).
+
 ## Local Development
 
 ### Pre-requisites

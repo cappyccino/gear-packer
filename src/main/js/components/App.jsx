@@ -1,5 +1,15 @@
 import React from 'react'
+import Header from "./header/Header"
 
-const App = () => <div>Beep Boop I am a react app</div>
+import './normalize.scss'
+import './App.scss'
+
+const App = () => {
+    return (
+        <>
+            <Header/>
+        </>
+    )
+}
 
 export default App
