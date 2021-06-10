@@ -41,8 +41,8 @@ docker run -p 9000:8080 cappyccino/gear-packer
 And visit at [localhost:9000](http://localhost:9000) (the default port Heroku runs on).
 
 ## Local Tests
-| Command | Runs JS tests | Runs Spring tests | Runs Integration tests | Notes|
-| --- | --- | --- | --- | --- |
+| Command | Runs Jest tests | Runs Spring tests | Runs Integration tests | Notes|
+| --- | :---: | :---: | :---: | --- |
 | `./gradlew yarn_test` | ✓ | | | |
-| `./gradlew build` | ✓ | ✓ | | |
-| `./gradlew integration` | | | ✓ | Must first start the app with `./gradlew bootrun`|
+| `./gradlew build` | | ✓ | | |
+| `./gradlew integration` | | | ✓ | Must first start the app inside a Docker container (see above) |

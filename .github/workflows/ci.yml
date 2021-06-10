@@ -27,6 +27,9 @@ jobs:
           ruby-version: 2.6
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
+      - name: 'Test React app with Gradle'
+        run: ./gradlew yarn_test
+
       - name: 'Build and Test Java app with Gradle'
         run: ./gradlew build
 
