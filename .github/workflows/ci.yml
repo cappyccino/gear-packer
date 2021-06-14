@@ -36,7 +36,7 @@ jobs:
       - name: 'Build and run docker for Integration tests'
         run: |
           docker build -t cappyccino/gear-packer .
-          docker run -d -p 8080:8080 cappyccino/gear-packer
+          docker run -d -p 9000:8080 cappyccino/gear-packer
 
       - name: 'Run Integration tests'
         run:  ./gradlew integration

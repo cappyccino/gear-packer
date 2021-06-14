@@ -30,7 +30,7 @@ Start by running
 ./gradlew bootRun
 ```
 
-And visit the compiled React site at [localhost:8080](http://localhost:8080), or the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
+And visit the hosted React site at [localhost:8080](http://localhost:8080), or the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
 
 ### Run via Docker
 In Heroku, the application is running inside a Docker container. For debugging, you can run the container locally with:
