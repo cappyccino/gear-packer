@@ -1,4 +1,4 @@
-# Gear Tracker
+# Gear Packer
 Playing around with things for some beach-time practice.
 
 A Spring Boot application using Java 8, serving a React app. Deployed on Heroku.
