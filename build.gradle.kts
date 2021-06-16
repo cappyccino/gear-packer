@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import com.github.gradle.node.task.NodeTask
 
 plugins {
   id("org.springframework.boot") version "2.5.0"
@@ -7,6 +6,8 @@ plugins {
   id("com.github.node-gradle.node") version "3.1.0"
   kotlin("jvm") version "1.5.10"
   kotlin("plugin.spring") version "1.5.10"
+  kotlin("plugin.allopen") version "1.4.32"
+  kotlin("plugin.jpa") version "1.5.20-RC"
 }
 
 group = "com.example"
@@ -20,10 +21,18 @@ repositories {
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-actuator")
   implementation("org.springframework.boot:spring-boot-starter-web")
+  implementation("org.springframework.boot:spring-boot-starter-data-jpa")
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  implementation("org.postgresql:postgresql:42.2.21")
   testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+allOpen {
+  annotation("javax.persistence.Entity")
+  annotation("javax.persistence.Embeddable")
+  annotation("javax.persistence.MappedSuperclass")
 }
 
 tasks.withType<KotlinCompile> {

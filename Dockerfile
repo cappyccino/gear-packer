@@ -10,7 +10,6 @@ ARG JAR_FILE=build/libs/\*SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 
 # Copy static files
-# (This is hacky, I knowwww)
 COPY src/main/resources/ .
 
 ENTRYPOINT ["java","-jar","/app.jar"]

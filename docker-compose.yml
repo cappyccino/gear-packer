@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  app:
+    image: 'cappyccino/gear-packer'
+    build:
+      context: .
+    container_name: app
+    ports: ['9000:8080']
+    depends_on:
+      - db
+    environment:
+      - JDBC_DATABASE_URL=jdbc:postgresql://db:5432/postgres
+      - JDBC_DATABASE_USERNAME=postgres
+      - JDBC_DATABASE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    command: ./gradlew bootRun
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
