@@ -10,9 +10,9 @@ services:
     depends_on:
       - db
     environment:
-      - JDBC_DATABASE_URL=jdbc:postgresql://db:5432/postgres
-      - JDBC_DATABASE_USERNAME=postgres
-      - JDBC_DATABASE_PASSWORD=postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     command: ./gradlew bootRun
 
