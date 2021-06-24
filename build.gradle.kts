@@ -27,6 +27,8 @@ dependencies {
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   implementation("org.postgresql:postgresql:42.2.21")
   testImplementation("org.springframework.boot:spring-boot-starter-test")
+  testImplementation("junit:junit:4.13")
+  testImplementation("org.testcontainers:postgresql:1.15.3")
 }
 
 allOpen {

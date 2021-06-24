@@ -19,14 +19,6 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: 'Set up Ruby 2.6'
-        uses: ruby/setup-ruby@v1
-        env:
-          BUNDLE_GEMFILE: src/test/integration/Gemfile
-        with:
-          ruby-version: 2.6
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-
       - name: 'Build and Test Spring app'
         run: ./gradlew build
 
@@ -34,6 +26,12 @@ jobs:
         run: ./gradlew yarn_test
 
       - name: 'Run Integration tests with Rspec'
+        uses: ruby/setup-ruby@v1
+        env:
+          BUNDLE_GEMFILE: src/test/integration/Gemfile
+        with:
+          ruby-version: 2.6
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
         run:  |
           docker-compose up
           ./gradlew integration
