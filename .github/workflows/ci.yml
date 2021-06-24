@@ -35,7 +35,7 @@ jobs:
 
       - name: 'Run Integration tests with Rspec'
         run:  |
-          docker-compose up
+          docker-compose up -d --build
           ./gradlew integration
 
       - name: 'Deploy to Heroku'
