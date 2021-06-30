@@ -1,5 +1,0 @@
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: docker run -p 9000:8080 cappyccino/gear-packer
