@@ -19,24 +19,24 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: 'Set up Ruby 2.6'
-        uses: ruby/setup-ruby@v1
-        env:
-          BUNDLE_GEMFILE: src/test/integration/Gemfile
-        with:
-          ruby-version: 2.6
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+#      - name: 'Set up Ruby 2.6'
+#        uses: ruby/setup-ruby@v1
+#        env:
+#          BUNDLE_GEMFILE: src/test/integration/Gemfile
+#        with:
+#          ruby-version: 2.6
+#          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 'Build and Test Spring app'
         run: ./gradlew build
 
-      - name: 'Test React app'
-        run: ./gradlew yarn_test
+#      - name: 'Test React app'
+#        run: ./gradlew yarn_test
 
-      - name: 'Run Integration tests with Rspec'
-        run:  |
-          docker-compose up -d --build
-          ./gradlew integration
+#      - name: 'Run Integration tests with Rspec'
+#        run:  |
+#          docker-compose up -d --build
+#          ./gradlew integration
 
       - name: 'Deploy to Heroku'
         uses: akhileshns/heroku-deploy@v3.12.12
