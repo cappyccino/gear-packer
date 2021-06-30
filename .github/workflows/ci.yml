@@ -44,8 +44,8 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          usedocker: true
-          healthcheck: https://${{secrets.HEROKU_APP_NAME}}.herokuapp.com/actuator/health
+#          usedocker: true
+          healthcheck: http://gearpacker.com/actuator/health
           # Needed so heroku can start up from sleep
           # it's quite a long wait, so in the future reevaluate if this is actually helpful
           delay: 20 # (in seconds)
