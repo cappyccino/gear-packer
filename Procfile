@@ -1,1 +1,1 @@
-web: java -jar target/myapp.jar
+web: java -jar build/libs/gear-packer-0.0.1-SNAPSHOT.jar
