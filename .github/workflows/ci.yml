@@ -30,6 +30,12 @@ jobs:
       - name: 'Build and Test Spring app'
         run: ./gradlew build
 
+      - name: 'Save built jar artifact'
+        uses: actions/upload-artifact@v1
+        with:
+          name: application-jar
+          path: build/libs
+
 #      - name: 'Test React app'
 #        run: ./gradlew yarn_test
 
