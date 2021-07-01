@@ -28,7 +28,7 @@ jobs:
 #          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: 'Build and Test Spring app'
-        run: ./gradlew build
+        run: ./gradlew yarn_install yarn_build build
 
       - name: 'Save built jar artifact'
         uses: actions/upload-artifact@v1
