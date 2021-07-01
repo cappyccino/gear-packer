@@ -60,4 +60,5 @@ jobs:
 
       - name: 'Deploy to Heroku'
         run: |
-          heroku deploy:jar target/my-app.jar --app gear-packer
+          heroku plugins:install java
+          heroku deploy:jar build/libs/gear-packer-0.0.1-SNAPSHOT.jar --app ${{ secrets.HEROKU_APP_NAME }}
