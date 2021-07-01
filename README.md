@@ -3,7 +3,7 @@ Playing around with things for some beach-time practice.
 
 A Spring Boot application using Java 8, serving a React app. Deployed on Heroku.
 
-Production app is live at [gear-packer.herokuapp.com](https://gear-packer.herokuapp.com/)
+Production app is live at [gearpacker.com](http://www.gearpacker.com/)
 
 ### Guidlelines for Contributing
 The codebase should be developed using TDD as much as possible. The tests follow the approach recommended by [Testing Library](https://testing-library.com/docs/queries/about#priority) of querying elements by their ARIA role. More information on roles can be found at [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles).
@@ -39,7 +39,7 @@ Start by running
 And visit the hosted React site at [localhost:8080](http://localhost:8080), or the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
 
 ### Run via Docker
-In Heroku, the application is running inside a Docker container with a PostgreSQL add-on. For debugging, you can run the app container together with a postgres instance locally with:
+You can run the app container together with a postgres instance locally with:
 ```bash
 # first build the JAR 
 ./gradlew build -x test

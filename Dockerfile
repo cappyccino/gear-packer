@@ -1,15 +1,6 @@
-# Use OpenJDK 8 image
 FROM openjdk:8-jdk-alpine
 
-# Add user priveleges
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
-
-# Copy the JAR
-ARG JAR_FILE=build/libs/\*SNAPSHOT.jar
+ARG JAR_FILE=build/libs/gear-packer-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
-
-# Copy static files
-COPY src/main/resources/ .
 
 ENTRYPOINT ["java","-jar","/app.jar"]
