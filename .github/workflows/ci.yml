@@ -44,14 +44,20 @@ jobs:
 #          docker-compose up -d --build
 #          ./gradlew integration
 
+      - name: 'Set Heroku login credentials'
+        run: |
+          cat > ~/.netrc <<EOF
+            machine api.heroku.com
+              login $HEROKU_EMAIL
+              password $HEROKU_API_KEY
+            machine git.heroku.com
+              login $HEROKU_EMAIL
+              password $HEROKU_API_KEY
+          EOF
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
+
       - name: 'Deploy to Heroku'
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
-#          usedocker: true
-          healthcheck: http://gearpacker.com/actuator/health
-          # Needed so heroku can start up from sleep
-          # it's quite a long wait, so in the future reevaluate if this is actually helpful
-          delay: 20 # (in seconds)
+        run: |
+          heroku deploy:jar target/my-app.jar --app gear-packer
