@@ -1,4 +1,4 @@
-package com.example.gearpacker
+package com.gearpacker
 
 import org.springframework.data.repository.CrudRepository
 

@@ -1,4 +1,4 @@
-package com.example.gearpacker
+package com.gearpacker
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity

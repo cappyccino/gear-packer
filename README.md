@@ -24,7 +24,7 @@ By running with Yarn locally, you get the benefits of webpack's hot-reloading. T
 
 Start by running
 ```bash
-./gradlew yarn_start
+yarn start
 ```
 And visit at [localhost:3000](localhost:3000)
 

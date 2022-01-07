@@ -1,11 +1,11 @@
-package com.example.gearpacker
+package com.gearpacker
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class GearPackerApplication
+class Application
 
 fun main(args: Array<String>) {
-  runApplication<GearPackerApplication>(*args)
+  runApplication<Application>(*args)
 }
