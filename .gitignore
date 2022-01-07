@@ -12,9 +12,9 @@ yarn.lock
 bundle.js*
 
 ### RSpec ###
-src/test/integration/.bundle
-src/test/integration/vendor
-src/test/integration/Gemfile.lock
+integration/.bundle
+integration/vendor
+integration/Gemfile.lock
 
 ### IntelliJ IDEA ###
 .idea

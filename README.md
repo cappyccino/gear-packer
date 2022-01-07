@@ -52,6 +52,6 @@ And visit at [localhost:9000](http://localhost:9000) (the default port Heroku ru
 ## Local Tests
 | Command | Runs Jest tests | Runs Spring tests | Runs Integration tests | Notes|
 | --- | :---: | :---: | :---: | --- |
-| `./gradlew yarn_test` | ✓ | | | |
+| `yarn test` | ✓ | | | |
 | `./gradlew build` | | ✓ | | |
 | `./gradlew integration` | | | ✓ | Must first start the app via Docker Compose (see above) |

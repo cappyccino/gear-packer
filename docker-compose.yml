@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  app:
+  backend:
     image: 'cappyccino/gear-packer'
     build:
       context: .
@@ -15,6 +15,9 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     command: ./gradlew bootRun
+
+  ui:
+    image: ''
 
   db:
     image: 'postgres:13.1-alpine'

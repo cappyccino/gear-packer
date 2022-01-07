@@ -2,23 +2,27 @@
   "name": "gear-packer-ui",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "author": "cappyccino",
+  "license": "ISC",
+  "main": "js/index.js",
+  "files": ["js/"],
+  "config": {
+    "port": "8080"
+  },
   "scripts": {
     "test": "jest",
-    "start": "webpack serve --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./js/webpack.config.js --mode development",
     "build": "webpack --mode=production"
   },
   "jest": {
     "testEnvironment": "jsdom",
+    "modulePathIgnorePatterns": ["<rootDir>/integration/"],
     "moduleNameMapper": {
-      "\\.(svg)$": "<rootDir>/__mocks__/svgMock.js",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(svg)$": "<rootDir>/js/__mocks__/svgMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/js/__mocks__/fileMock.js",
+      "\\.(css|sass|scss)$": "<rootDir>/js/__mocks__/styleMock.js"
     }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
