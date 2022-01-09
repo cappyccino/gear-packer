@@ -5,7 +5,9 @@
   "author": "cappyccino",
   "license": "ISC",
   "main": "js/index.js",
-  "files": ["js/"],
+  "files": [
+    "js/"
+  ],
   "config": {
     "port": "8080"
   },
@@ -16,7 +18,9 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "modulePathIgnorePatterns": ["<rootDir>/integration/"],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/integration/"
+    ],
     "moduleNameMapper": {
       "\\.(svg)$": "<rootDir>/js/__mocks__/svgMock.js",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/js/__mocks__/fileMock.js",
@@ -24,23 +28,31 @@
     }
   },
   "dependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
-    "@babel/preset-react": "^7.13.13",
-    "@svgr/webpack": "^5.5.0",
-    "@testing-library/jest-dom": "^5.13.0",
-    "@testing-library/react": "^11.2.7",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^5.2.6",
-    "jest": "^27.0.4",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "@svgr/webpack": "^6.1.2",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "jest": "^27.4.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0",
-    "sass": "^1.34.1",
-    "sass-loader": "^12.0.0",
-    "style-loader": "^2.0.0",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
+    "sass": "^1.47.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0"
   }
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import Header from "./components/header/Header"
 import Pack from "./components/pack/Pack";
 
-import './normalize.scss'
+import './styles/normalize.scss'
 import './App.scss'
 
 const App = () => {

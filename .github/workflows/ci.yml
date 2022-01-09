@@ -19,16 +19,8 @@ jobs:
         with:
           java-version: 1.8
 
-#      - name: 'Set up Ruby 2.6'
-#        uses: ruby/setup-ruby@v1
-#        env:
-#          BUNDLE_GEMFILE: src/test/integration/Gemfile
-#        with:
-#          ruby-version: 2.6
-#          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-
       - name: 'Build and Test Spring app'
-        run: ./gradlew yarn_install yarn_build build
+        run: ./gradlew build
 
       - name: 'Save built jar artifact'
         uses: actions/upload-artifact@v1
@@ -36,8 +28,19 @@ jobs:
           name: application-jar
           path: build/libs
 
-#      - name: 'Test React app'
-#        run: ./gradlew yarn_test
+      - name: 'Test React app'
+        run: |
+          yarn install
+          yarn ci
+          yarn test
+
+#      - name: 'Set up Ruby 2.6'
+#        uses: ruby/setup-ruby@v1
+#        env:
+#          BUNDLE_GEMFILE: src/test/integration/Gemfile
+#        with:
+#          ruby-version: 2.6
+#          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
 #      - name: 'Run Integration tests with Rspec'
 #        run:  |
