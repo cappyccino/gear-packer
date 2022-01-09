@@ -31,7 +31,6 @@ jobs:
       - name: 'Test React app'
         run: |
           yarn install
-          yarn ci
           yarn test
 
       - name: 'Build React app'
