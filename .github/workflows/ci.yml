@@ -34,6 +34,9 @@ jobs:
           yarn ci
           yarn test
 
+      - name: 'Build React app'
+        run: yarn build
+
 #      - name: 'Set up Ruby 2.6'
 #        uses: ruby/setup-ruby@v1
 #        env:
