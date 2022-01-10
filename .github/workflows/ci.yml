@@ -22,19 +22,14 @@ jobs:
       - name: 'Build and Test Spring app'
         run: ./gradlew build
 
+      - name: 'Test React app'
+        run: ./gradlew yarn_test
+
       - name: 'Save built jar artifact'
         uses: actions/upload-artifact@v1
         with:
           name: application-jar
           path: build/libs
-
-      - name: 'Test React app'
-        run: |
-          yarn install
-          yarn test
-
-      - name: 'Build React app'
-        run: yarn build
 
 #      - name: 'Set up Ruby 2.6'
 #        uses: ruby/setup-ruby@v1
