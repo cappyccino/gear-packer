@@ -55,3 +55,8 @@ And visit at [localhost:9000](http://localhost:9000) (the default port Heroku ru
 | `yarn test` | ✓ | | | |
 | `./gradlew build` | | ✓ | | |
 | `./gradlew integration` | | | ✓ | Must first start the app via Docker Compose (see above) |
+
+
+[comment]: <> (https://medium.com/xebia-engineering/a-minimalistic-guide-to-building-and-deploying-monolithic-spring-boot-react-applications-39440035b27)
+
+[comment]: <> (https://pretagteam.com/question/serve-react-app-and-backend-server-from-same-domain)

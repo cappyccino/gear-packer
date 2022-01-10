@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
   id("org.springframework.boot") version "2.5.0"
   id("io.spring.dependency-management") version "1.0.11.RELEASE"
+  id("application")
+  id("com.github.node-gradle.node") version "3.1.0"
   kotlin("jvm") version "1.5.31"
   kotlin("plugin.spring") version "1.6.10"
   kotlin("plugin.jpa") version "1.5.20-RC"
@@ -44,6 +46,18 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
   useJUnitPlatform()
+}
+
+tasks.named("build") {
+  dependsOn("yarn_build")
+}
+
+tasks.named("yarn_build") {
+  dependsOn("yarn_install")
+}
+
+node {
+  nodeProjectDir.set(file("${project.projectDir}/js"))
 }
 
 tasks.register<Exec>("integration") {
