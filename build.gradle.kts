@@ -49,6 +49,14 @@ tasks.withType<Test> {
   useJUnitPlatform()
 }
 
+tasks.named("yarn_build") {
+  dependsOn("yarn_install")
+}
+
+tasks.named("yarn_test") {
+  dependsOn("yarn_install")
+}
+
 tasks.register<Copy>("copyStaticJSResources") {
   description = "Copies all static resources for the JS app into the SpringBoot dir"
   from(layout.projectDirectory.dir("js/static/"))
@@ -59,7 +67,6 @@ tasks.register<Copy>("copyStaticJSResources") {
 
 tasks.register("prep_js") {
   description = "Builds and preps the static JS app"
-  dependsOn("yarn_install")
   dependsOn("yarn_build")
   dependsOn("copyStaticJSResources")
 }
