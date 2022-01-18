@@ -39,7 +39,7 @@ module.exports = {
     },
     plugins: [new webpack.HotModuleReplacementPlugin()],
     devServer: {
-        contentBase: [
+        static: [
             path.resolve(__dirname, staticDirectory),
         ],
         port: 3000,
