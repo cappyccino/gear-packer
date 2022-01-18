@@ -49,12 +49,6 @@ tasks.withType<Test> {
   useJUnitPlatform()
 }
 
-// TODO - get the integration tests running again
-//tasks.register<Exec>("integration") {
-//  environment("BUNDLE_GEMFILE", "src/test/integration/Gemfile")
-//  commandLine("bundle", "exec", "rspec", "src/test/integration/spec")
-//}
-
 tasks.register<Copy>("copyStaticJSResources") {
   description = "Copies all static resources for the JS app into the SpringBoot dir"
   from(layout.projectDirectory.dir("js/static/"))

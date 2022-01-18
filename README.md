@@ -55,10 +55,10 @@ Run
 And visit the hosted React site at [localhost:8080](http://localhost:8080), or the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
 
 ## Local Tests
-| Command | Runs Jest tests | Runs Spring tests | Runs Integration tests | Notes|
+| Command | Runs Jest tests | Runs Spring tests | Notes|
 | --- | :---: | :---: | :---: | --- |
-| `yarn test` | ✓ | | | |
-| `./gradlew build` | | ✓ | | |
+| `yarn test` | ✓ | | |
+| `./gradlew build` | | ✓ | |
 
 [comment]: <> (https://medium.com/xebia-engineering/a-minimalistic-guide-to-building-and-deploying-monolithic-spring-boot-react-applications-39440035b27)
 [comment]: <> (https://pretagteam.com/question/serve-react-app-and-backend-server-from-same-domain)

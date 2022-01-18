@@ -31,19 +31,6 @@ jobs:
           name: application-jar
           path: build/libs
 
-#      - name: 'Set up Ruby 2.6'
-#        uses: ruby/setup-ruby@v1
-#        env:
-#          BUNDLE_GEMFILE: src/test/integration/Gemfile
-#        with:
-#          ruby-version: 2.6
-#          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-
-#      - name: 'Run Integration tests with Rspec'
-#        run:  |
-#          docker-compose up -d --build
-#          ./gradlew integration
-
       - name: 'Set Heroku login credentials'
         run: |
           cat > ~/.netrc <<EOF
