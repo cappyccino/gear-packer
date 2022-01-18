@@ -68,3 +68,9 @@ tasks.register("buildApp") {
   dependsOn("yarn_install", "yarn_build", "copyStaticJSResources")
   finalizedBy("build")
 }
+
+tasks.register("bootRunApp") {
+  description = "Builds the SpringBoot app with the JS app"
+  dependsOn("yarn_build", "copyStaticJSResources")
+  finalizedBy("bootRun")
+}
