@@ -5,6 +5,8 @@ build/
 !**/src/test/**/build/
 .DS_Store
 
+src/main/resources/static/
+
 ### React ###
 node_modules/
 yarn-*.log

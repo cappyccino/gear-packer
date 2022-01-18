@@ -14,7 +14,7 @@
   "scripts": {
     "test": "jest",
     "start": "webpack serve --config ./js/webpack.config.js --mode development",
-    "build": "webpack --mode=production -c ./js/webpack.config.js -o ./js"
+    "build": "webpack --mode=production -c ./js/webpack.config.js --output-path ./js/static"
   },
   "jest": {
     "testEnvironment": "jsdom",

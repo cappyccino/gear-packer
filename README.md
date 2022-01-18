@@ -18,9 +18,16 @@ This section is a work in progress. More coming soon!
     - Check by running `postgres --version`
     - Start server with `brew services start postgresql`
     - Create user "postgres" with `/usr/local/Cellar/postgresql/9.2.4/bin/createuser -s postgres`
-  
+- Must have Docker running
+    - The Spring integration tests use [TestContainers](https://www.testcontainers.org/), which depends on a running instance of Docker
+- npm 
+    - version `7.15.1` 
+- Yarn
+    - version `1.22.10` 
+- OpenJDK 17
+
 ### Run front-end only via Yarn
-By running with Yarn locally, you get the benefits of webpack's hot-reloading. This application uses the [gradle-node-plugin](https://github.com/node-gradle/gradle-node-plugin) which wraps Yarn commands in Gradle.
+By running with Yarn locally, you get the benefits of webpack's hot-reloading. 
 
 Start by running
 ```bash
@@ -28,7 +35,7 @@ yarn start
 ```
 And visit at [localhost:3000](localhost:3000)
 
-### Run via Gradle
+### Run back-end only via Gradle
 You can boot up the Spring Application API, which also serves the static React site from the homepage (`/`).
 
 Start by running
@@ -36,27 +43,22 @@ Start by running
 ./gradlew bootRun
 ```
 
-And visit the hosted React site at [localhost:8080](http://localhost:8080), or the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
+And visit the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
 
-### Run via Docker
-You can run the app container together with a postgres instance locally with:
+### Run full app via Gradle
+
+Run
 ```bash
-# first build the JAR 
-./gradlew build -x test
-
-# Then run the containers
-docker-compose up --build
+./gradlew bootRunApp
 ```
-And visit at [localhost:9000](http://localhost:9000) (the default port Heroku runs on).
+
+And visit the hosted React site at [localhost:8080](http://localhost:8080), or the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
 
 ## Local Tests
 | Command | Runs Jest tests | Runs Spring tests | Runs Integration tests | Notes|
 | --- | :---: | :---: | :---: | --- |
 | `yarn test` | ✓ | | | |
 | `./gradlew build` | | ✓ | | |
-| `./gradlew integration` | | | ✓ | Must first start the app via Docker Compose (see above) |
-
 
 [comment]: <> (https://medium.com/xebia-engineering/a-minimalistic-guide-to-building-and-deploying-monolithic-spring-boot-react-applications-39440035b27)
-
 [comment]: <> (https://pretagteam.com/question/serve-react-app-and-backend-server-from-same-domain)

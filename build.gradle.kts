@@ -22,6 +22,7 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-actuator:2.5.6")
   implementation("org.springframework.boot:spring-boot-starter-web:2.5.6")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.6.2")
+  implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   implementation("org.postgresql:postgresql:42.3.1")
@@ -48,19 +49,35 @@ tasks.withType<Test> {
   useJUnitPlatform()
 }
 
-tasks.named("build") {
-  dependsOn("yarn_build")
+// TODO - get the integration tests running again
+//tasks.register<Exec>("integration") {
+//  environment("BUNDLE_GEMFILE", "src/test/integration/Gemfile")
+//  commandLine("bundle", "exec", "rspec", "src/test/integration/spec")
+//}
+
+tasks.register<Copy>("copyStaticJSResources") {
+  description = "Copies all static resources for the JS app into the SpringBoot dir"
+  from(layout.projectDirectory.dir("js/static/"))
+  into(layout.projectDirectory.dir("src/main/resources/static"))
+  // TODO future - this is hacky, but Thymeleaf only seems to recognize templates
+  // if they're present before the build. Will look into later
 }
 
-tasks.named("yarn_build") {
+tasks.register("prep_js") {
+  description = "Builds and preps the static JS app"
   dependsOn("yarn_install")
+  dependsOn("yarn_build")
+  dependsOn("copyStaticJSResources")
 }
 
-node {
-  nodeProjectDir.set(file("${project.projectDir}/js"))
+tasks.register("buildApp") {
+  description = "Builds the SpringBoot app with the JS app"
+  dependsOn("prep_js")
+  finalizedBy("build")
 }
 
-tasks.register<Exec>("integration") {
-  environment("BUNDLE_GEMFILE", "src/test/integration/Gemfile")
-  commandLine("bundle", "exec", "rspec", "src/test/integration/spec")
+tasks.register("bootRunApp") {
+  description = "Runs the SpringBoot app, and builds and serves the JS app"
+  dependsOn("prep_js")
+  finalizedBy("bootRun")
 }
