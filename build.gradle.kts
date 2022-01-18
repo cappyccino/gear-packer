@@ -49,36 +49,22 @@ tasks.withType<Test> {
   useJUnitPlatform()
 }
 
-tasks.named("yarn_build") {
-  dependsOn("yarn_install")
-}
-
-tasks.named("yarn_test") {
-  dependsOn("yarn_install")
-}
-
 tasks.register<Copy>("copyStaticJSResources") {
   description = "Copies all static resources for the JS app into the SpringBoot dir"
+  mustRunAfter("yarn_build")
+
   from(layout.projectDirectory.dir("js/static/"))
   into(layout.projectDirectory.dir("src/main/resources/static"))
   // TODO future - this is hacky, but Thymeleaf only seems to recognize templates
   // if they're present before the build. Will look into later
 }
 
-tasks.register("prep_js") {
-  description = "Builds and preps the static JS app"
-  dependsOn("yarn_build")
-  dependsOn("copyStaticJSResources")
+tasks.named("yarn_build") {
+  mustRunAfter("yarn_install")
 }
 
 tasks.register("buildApp") {
   description = "Builds the SpringBoot app with the JS app"
-  dependsOn("prep_js")
+  dependsOn("yarn_install", "yarn_build", "copyStaticJSResources")
   finalizedBy("build")
-}
-
-tasks.register("bootRunApp") {
-  description = "Runs the SpringBoot app, and builds and serves the JS app"
-  dependsOn("prep_js")
-  finalizedBy("bootRun")
 }

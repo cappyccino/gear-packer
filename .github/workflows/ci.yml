@@ -19,11 +19,20 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: 'Build and Test Spring app'
-        run: ./gradlew buildApp
+      - name: 'Install Yarn'
+        run: ./gradlew yarn_install
 
       - name: 'Test React app'
         run: ./gradlew yarn_test
+
+      - name: 'Test Spring app'
+        run: ./gradlew test
+
+      - name: 'Build JAR'
+        run: |
+          ./gradlew yarn_build
+          ./gradlew copyStaticJSResources
+          ./gradlew build
 
       - name: 'Save built jar artifact'
         uses: actions/upload-artifact@v1
