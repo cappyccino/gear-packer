@@ -26,33 +26,21 @@ This section is a work in progress. More coming soon!
     - version `1.22.10` 
 - OpenJDK 17
 
-### Run front-end only via Yarn
-By running with Yarn locally, you get the benefits of webpack's hot-reloading. 
+### Running locally
 
-Start by running
-```bash
-yarn start
-```
-And visit at [localhost:3000](localhost:3000)
+| Name | Command | URL | Notes |
+| --- | --- | --- | --- |
+| Frontend with Yarn | `yarn start` | [localhost:3000](localhost:3000) | Get the benefits of webpack's hot-reloading. |
+| Backend with Gradle | `./gradlew bootRun` | [localhost:8080/acutator/health](localhost:8080/acutator/health) | Start the Spring Boot app without building a fresh JS bundle (will serve a JS bundle if it exists, even if outdated) |
+| Full app with Gradle and Yarn | `./gradlew bootRunApp` | [localhost:8080](localhost:8080) | Build a fresh JS bundle and start the Spring Boot, serving the front end app |
 
-### Run back-end only via Gradle
-You can boot up the Spring Application API, which also serves the static React site from the homepage (`/`).
+## Local Tests
+| Command | Jest tests | JUnit tests | Capybara Integration tests | Notes |
+| --- | :---: | :---: | :---: | --- |
+| `yarn test` | ✓ | | | |
+| `./gradlew test` | | ✓ | | |
+| ` BUNDLE_GEMFILE="integration/Gemfile" bundle exec rspec integration/spec` | | | ✓ | The full app must be running for the Capybara tests to execute. You can start the app with `./gradlew bootrunApp` |
 
-Start by running
-```bash
-./gradlew bootRun
-```
-
-And visit the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
-
-### Run full app via Gradle
-
-Run
-```bash
-./gradlew bootRunApp
-```
-
-And visit the hosted React site at [localhost:8080](http://localhost:8080), or the health check endpoint at [localhost:8080/acutator/health](http://localhost:8080/acutator/health).
 
 ### Build JAR locally
 
@@ -61,11 +49,3 @@ Run
 ./gradlew buildApp
 ```
 
-## Local Tests
-| Command | Runs Jest tests | Runs Spring tests | Notes|
-| --- | :---: | :---: | :---: | --- |
-| `yarn test` | ✓ | | |
-| `./gradlew test` | | ✓ | |
-
-[comment]: <> (https://medium.com/xebia-engineering/a-minimalistic-guide-to-building-and-deploying-monolithic-spring-boot-react-applications-39440035b27)
-[comment]: <> (https://pretagteam.com/question/serve-react-app-and-backend-server-from-same-domain)

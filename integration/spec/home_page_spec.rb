@@ -2,7 +2,7 @@ require 'capybara/dsl'
 require 'capybara/rspec'
 
 Capybara.default_driver = :selenium_headless
-Capybara.app_host = 'localhost:9000'
+Capybara.app_host = 'localhost:8080'
 Capybara.run_server = false
 
 feature 'the home page' do
@@ -14,7 +14,7 @@ feature 'the home page' do
     expect(page).to have_content 'Gear Packer'
   end
 
-  it 'allows a user to create a pack with items' do
+  xit 'allows a user to create a pack with items' do
     expect(page).to have_content "You don't have any packs yet"
     page.find_button('Create').click
 
