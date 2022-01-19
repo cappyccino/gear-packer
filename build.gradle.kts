@@ -19,17 +19,17 @@ repositories {
 }
 
 dependencies {
-  implementation("org.springframework.boot:spring-boot-starter-actuator:2.5.6")
-  implementation("org.springframework.boot:spring-boot-starter-web:2.5.6")
+  implementation("org.springframework.boot:spring-boot-starter-actuator:2.6.2")
+  implementation("org.springframework.boot:spring-boot-starter-web:2.6.2")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.6.2")
   implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   implementation("org.postgresql:postgresql:42.3.1")
-  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
+  implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
 
   testImplementation("org.testcontainers:postgresql:1.16.2")
-  testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.6")
+  testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.2")
   testImplementation("junit:junit:4.13.2")
 }
 
